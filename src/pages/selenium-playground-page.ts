@@ -1,7 +1,8 @@
 import {Page} from "@playwright/test";
+import {BasePage} from "./base-page";
 
 
-export class SeleniumPlaygroundPage {
+export class SeleniumPlaygroundPage extends BasePage {
 
 
 
@@ -9,8 +10,6 @@ export class SeleniumPlaygroundPage {
     private dragAndDropSlidersLink = "//a[contains(@href, 'drag-drop-range')]";
     private inputFormDemoLink = "//a[contains(@href, 'input-form-demo')]";
 
-    constructor(private page: Page) {
-    }
 
     async goToSimpleFormDemoPage() {
         await this.page.click(this.simpleFormDemoLink)
