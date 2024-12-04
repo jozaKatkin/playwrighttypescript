@@ -5,15 +5,15 @@ export class CookieBotDialog extends BasePage {
     private allowAllButton = '#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll';
 
 
-    async waitForDialog() {
+    async waitForDialogToBeVisible() {
         await this.page.waitForSelector(this.dialog, { state: 'visible' });
     }
 
-    async clickAllowAll() {
+    async clickAllowAllButton() {
         await this.page.click(this.allowAllButton);
     }
 
-    async verifyDialogIsHidden() {
+    async waitForDialogToBeHidden() {
         await this.page.waitForSelector(this.dialog, { state: 'hidden' });
     }
 }

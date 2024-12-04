@@ -1,24 +1,24 @@
-import {expect, test} from "../fixtures/page-fixtures.ts"
-import {SeleniumPlaygroundPage} from "../pages/selenium-playground-page";
-import {DragAndDropPage} from "../pages/drag-and-drop-page";
+import {expect, test} from "../fixtures/page-fixtures";
+import {StringConstants} from "../constants/StringConstants";
+
+test.beforeEach("Before Each Hook", async ({page, cookieBotDialog}) => {
+    await page.goto("/selenium-playground/");
+    await cookieBotDialog.waitForDialogToBeVisible();
+    await cookieBotDialog.clickAllowAllButton();
+    await cookieBotDialog.waitForDialogToBeHidden();
+});
 
 
-test("Simple Form Demo Test", async ({cookieBotDialog, seleniumPlaygroundPage, }) => {
-   // await page.goto('https://www.lambdatest.com/selenium-playground/');
-   await page.goto("/selenium-playground/");
-   page.on('dialog', async dialog => {
-      console.log(dialog.type());
-      await dialog.accept();
-   });
+test("Simple Form Demo Test", async ({seleniumPlaygroundPage, simpleFormDemoPage}) => {
+    await seleniumPlaygroundPage.goToSimpleFormDemoPage();
+    const url = await simpleFormDemoPage.getUrl();
+    expect(url).toContain(StringConstants.CORRECT_SIMPLE_FORM_DEMO_URL);
+
+    await simpleFormDemoPage.enterMessageIntoField(StringConstants.WELCOME_TO_LAMBDA_TEST_STRING);
+    await simpleFormDemoPage.clickOnGetCheckedValueButton();
+    const actualText = await simpleFormDemoPage.getAppearedMessageText();
+    expect(actualText).toContain(StringConstants.WELCOME_TO_LAMBDA_TEST_STRING)
 
 
-   const seleniumPlaygroundPage = new SeleniumPlaygroundPage(page);
-
-   await seleniumPlaygroundPage.goToSimpleFormDemoPage();
-   await expect(page).toHaveURL(/simple-form-demo/);
-   await page.waitForTimeout(1000);
-
-   const dragAndDropPage = new DragAndDropPage(page);
-   await dragAndDropPage
 
 });
