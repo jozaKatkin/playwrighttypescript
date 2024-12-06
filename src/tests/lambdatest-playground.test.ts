@@ -18,7 +18,13 @@ test("Simple Form Demo Test", async ({seleniumPlaygroundPage, simpleFormDemoPage
     await simpleFormDemoPage.clickOnGetCheckedValueButton();
     const actualText = await simpleFormDemoPage.getAppearedMessageText();
     expect(actualText).toContain(StringConstants.WELCOME_TO_LAMBDA_TEST_STRING)
-
-
-
 });
+
+test("Drag and Drop Test", async ({seleniumPlaygroundPage, dragAndDropPage}) => {
+    const targetSliderValue: string = "94"
+
+    await seleniumPlaygroundPage.goToDragAndDropPage();
+    await dragAndDropPage.setSliderValue(targetSliderValue);
+    await dragAndDropPage.waitFor(2000);
+    expect(dragAndDropPage.getCurrentSliderValue()).toEqual(targetSliderValue);
+})

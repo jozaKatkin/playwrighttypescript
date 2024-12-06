@@ -12,7 +12,11 @@ export class SeleniumPlaygroundPage extends BasePage {
 
 
     async goToSimpleFormDemoPage() {
-        await this.page.click(this.simpleFormDemoLink)
+        await this.page.click(this.simpleFormDemoLink);
+    }
+
+    async goToDragAndDropPage() {
+        await this.page.click(this.dragAndDropSlidersLink);
     }
 
 }
