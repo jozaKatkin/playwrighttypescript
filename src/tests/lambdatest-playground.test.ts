@@ -25,6 +25,5 @@ test("Drag and Drop Test", async ({seleniumPlaygroundPage, dragAndDropPage}) => 
 
     await seleniumPlaygroundPage.goToDragAndDropPage();
     await dragAndDropPage.setSliderValue(targetSliderValue);
-    await dragAndDropPage.waitFor(2000);
-    expect(dragAndDropPage.getCurrentSliderValue()).toEqual(targetSliderValue);
+    expect(await dragAndDropPage.getCurrentSliderValue()).toBe(targetSliderValue);
 })

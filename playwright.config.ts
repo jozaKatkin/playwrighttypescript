@@ -17,7 +17,7 @@ export default defineConfig({
         },
         {
             name: 'google-chrome',
-            use: { browserName: 'chromium', headless: false },
+            use: { browserName: 'chromium', headless: true },
         },
     ],
     workers: 3,
