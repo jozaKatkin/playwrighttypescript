@@ -5,10 +5,9 @@ import {BasePage} from "./base-page";
 export class SeleniumPlaygroundPage extends BasePage {
 
 
-
     private simpleFormDemoLink = "//a[contains(@href, 'simple-form-demo')]";
     private dragAndDropSlidersLink = "//a[contains(@href, 'drag-drop-range')]";
-    private inputFormDemoLink = "//a[contains(@href, 'input-form-demo')]";
+    private inputFormSubmitLink = "//a[contains(@href, 'input-form-demo')]";
 
 
     async goToSimpleFormDemoPage() {
@@ -19,4 +18,7 @@ export class SeleniumPlaygroundPage extends BasePage {
         await this.page.click(this.dragAndDropSlidersLink);
     }
 
+    async goToInputFormSubmitPage() {
+        await this.page.click(this.inputFormSubmitLink);
+    }
 }

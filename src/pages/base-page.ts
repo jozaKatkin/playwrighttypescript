@@ -13,4 +13,8 @@ export class BasePage {
     async waitFor(timeout: number) {
         await this.page.waitForTimeout(timeout);
     }
+
+    async waitForPageToLoad() {
+        await this.page.waitForLoadState('load');
+    }
 }

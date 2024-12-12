@@ -8,12 +8,12 @@ export class DragAndDropPage extends BasePage {
     private valueBoxElement = this.page.locator("#rangeSuccess");
 
     async getCurrentSliderValue(): Promise<string | null> {
-        await this.valueBoxElement.waitFor({ state: 'attached' });
-        await this.valueBoxElement.waitFor({ state: 'visible' });
+        await this.valueBoxElement.waitFor({ state: 'visible'});
         return await this.valueBoxElement.textContent();
     }
 
     async setSliderValue(targetValue: string) {
+        await this.defaultValue15Slider.waitFor({ state: 'visible' });
         await this.defaultValue15Slider.fill(targetValue);
         await this.defaultValue15Slider.dispatchEvent('input');
     }

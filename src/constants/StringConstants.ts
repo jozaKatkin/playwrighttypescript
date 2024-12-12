@@ -14,6 +14,6 @@ export const StringConstants = {
     STATE:"Washington DC",
     ZIPCODE:"569658",
 
-    PLEASE_FILL_OUT_THIS_FIELD_STRING:"Please fill out this field",
+    PLEASE_FILL_OUT_THIS_FIELD_STRING:"fill out this field",
     THANKS_FOR_CONTACTING_US_STRING:"Thanks for contacting us, we will get back to you shortly"
 }
