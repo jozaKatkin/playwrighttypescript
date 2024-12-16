@@ -36,4 +36,8 @@ test("Input Form Submit Test", async ({seleniumPlaygroundPage, inputFormSubmitPa
 
     await inputFormSubmitPage.clickOnSubmitButton();
     expect(await inputFormSubmitPage.getValidationMessage()).toContain(StringConstants.PLEASE_FILL_OUT_THIS_FIELD_STRING);
+
+    await inputFormSubmitPage.fillAllNecessaryFields();
+    await inputFormSubmitPage.clickOnSubmitButton();
+    expect(await inputFormSubmitPage.getSuccessMessageText()).toContain(StringConstants.THANKS_FOR_CONTACTING_US_STRING)
 });
